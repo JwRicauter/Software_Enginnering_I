@@ -72,7 +72,14 @@ def calcularPrecio(tarifa,tiempoDeServicio):
 			if cuentaDia==6:
 
 				cuentaDia = 0
+
+				
+		if tiempoDeServicio[1].esDiaDeSemana():
+			
+			pago_total += tiempoDeServicio[1].hora * tarifa.tarifaDiaDeSemana
+		else:
 		
+			pago_total += tiempoDeServicio[1].hora * tarifa.tarifaFinDeSemana
 	return pago_total
 
 ################ Inicio de Prueba ############
