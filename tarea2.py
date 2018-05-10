@@ -1,13 +1,14 @@
-# Tarifa: Obetoq que contiene infomacion sobre las tarifas por hora segun el dia de la semana 
+# Tarifa: Objeto que contiene infomacion sobre las tarifas por hora segun el dia de la semana 
+
 class Tarifa:
-	def __init__(self,tarifaDiaDeSemana,tarifaFinDeSemana):
+	def __init__(self, tarifaDiaDeSemana, tarifaFinDeSemana):
 		self.tarifaFinDeSemana = tarifaFinDeSemana
 		self.tarifaDiaDeSemana = tarifaDiaDeSemana
 
 # Tiempo : Objeto que indica el dia de la semana (nombre), fecha y hora de inicio y fin del servicio.
 #			la hora es en formato 24h
 class Tiempo:
-	def __init__(self,diaSemana,dia,mes,anio, hora):
+	def __init__(self, diaSemana, dia, mes, anio, hora):
 		self.diaSemana = diaSemana
 		self.dia = dia
 		self.mes = mes
