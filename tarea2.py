@@ -2,7 +2,7 @@
 diasDeSemana = ['lunes','martes','miercoles','jueves','viernes']
 diasDeFinDeSemana = ['sabado','domingo']
 diasSemana =  ['lunes','martes','miercoles','jueves','viernes','sabado','domingo']
-# Tarifa: Obetoq que contiene infomacion sobre las tarifas por hora segun el dia de la semana 
+# Tarifa: Objetos que contienen infomacion sobre las tarifas por hora segun el dia de la semana 
 
 class Tarifa:
 	def __init__(self, tarifaDiaDeSemana, tarifaFinDeSemana):

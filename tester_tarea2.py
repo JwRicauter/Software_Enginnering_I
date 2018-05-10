@@ -54,12 +54,23 @@ class TestTiempo(unittest.TestCase):
 		tiempo4 = Tiempo("lunmar", "01", "01", "2000", 12)
 		self.assertTrue(tiempo2.esDiaDeSemana(), "El dia deberia ser entre lunes y viernes")
 
+
 	def testNumeroDia(self):
  
 		# Prueba por frontera
 
-		tiempo1 = Tiempo("Lunes", "01", "01", "2000", 12)
+		tiempo1 = Tiempo("lunes", "01", "01", "2000", 12)
 		self.assertEqual(0, tiempo1.numeroDia())
+
+		# Prueba por esquina
+
+		tiempo2 = Tiempo("domingo", "01", "01", "2000", 12)
+		self.assertEqual(6, tiempo2.numeroDia())
+
+		# Prueba por malicia
+
+		tiempo3 = Tiempo("sunday", "01", "01", "2000", 12)
+		self.assertEqual(False, tiempo3.numeroDia())
 
 
 
