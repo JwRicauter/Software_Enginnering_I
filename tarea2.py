@@ -1,4 +1,8 @@
-# Tarifa: Objeto que contiene infomacion sobre las tarifas por hora segun el dia de la semana 
+
+diasDeSemana = ['lunes','martes','miercoles','jueves','viernes']
+diasDeFinDeSemana = ['sabado','domingo']
+diasSemana =  ['lunes','martes','miercoles','jueves','viernes','sabado','domingo']
+# Tarifa: Obetoq que contiene infomacion sobre las tarifas por hora segun el dia de la semana 
 
 class Tarifa:
 	def __init__(self, tarifaDiaDeSemana, tarifaFinDeSemana):
@@ -29,11 +33,61 @@ class Tiempo:
 			return False;
 	
 	def numeroDia(self):
-		print(self.diaSemana.lower())
 		if self.diaSemana.lower() in diasSemana :
 			return diasSemana.index(self.diaSemana)
 		return False
 
 
 def calcularPrecio(tarifa,tiempoDeServicio):
-	pass
+	cuentaDia = tiempoDeServicio[0].numeroDia() -1
+	total_dias = tiempoDeServicio[1].dia - tiempoDeServicio[0].dia
+	pago_total = 0
+	
+	if tiempoDeServicio[0].dia==tiempoDeServicio[1].dia and tiempoDeServicio[0].hora<tiempoDeServicio[1].hora:
+		if tiempoDeServicio[0].esDiaDeSemana():
+			pago_total += (tiempoDeServicio[1].hora - tiempoDeServicio[0].hora )* tarifa.tarifaDiaDeSemana
+		else:
+			pago_total += (tiempoDeServicio[1].hora - tiempoDeServicio[0].hora )* tarifa.tarifaFinDeSemana 
+	elif tiempoDeServicio[0].dia<tiempoDeServicio[1].dia:
+		x = 0
+		while x != total_dias:
+			cuentaDia +=1
+			
+			if 0<=cuentaDia<=4 :
+				if x==0:
+					pago_total += (24 - tiempoDeServicio[0].hora) *tarifa.tarifaDiaDeSemana 
+					
+				else:
+					
+					pago_total += 24 *tarifa.tarifaDiaDeSemana
+
+			else:
+				if x==0:
+
+					pago_total += (24 - tiempoDeServicio[0].hora) *tarifa.tarifaFinDeSemana 
+
+				else:
+					pago_total += 24 *tarifa.tarifaFinDeSemana
+
+			x+=1
+
+			if cuentaDia==6:
+
+				cuentaDia = 0
+		
+	return pago_total
+
+################ Inicio de Prueba ############
+
+#inicio = Tiempo ("jueves",1,5,2018,7)
+#fin = Tiempo ("jueves",1,5,2018,20)
+
+#inicio = Tiempo ("domingo",1,5,2018,7)
+#fin = Tiempo ("domingo",1,5,2018,20)
+
+inicio = Tiempo ("jueves",1,5,2018,7)
+fin = Tiempo ("domingo",4,5,2018,8)
+
+tarifa = Tarifa(20,25)
+monto_total = calcularPrecio(tarifa,[inicio,fin])
+print(monto_total)
