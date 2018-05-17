@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from acceso.views import Sesion
+from acceso import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Sesion.as_view(), name='sesion')
+    path('', views.sesion, name='sesion')
 ]

@@ -116,10 +116,11 @@
 		</div>
 		<div class="veen">
 			<div class="tada">
-				<form id="login" method="POST" class="login">
+				<form action="" method="POST">
+					{% csrf_token %}
 					<p class="head">Login</p>
-					<div class="uid" name="correoUser">
-						<label>Correo</label><input type="text"></input>
+					<div class="uid">
+						<label>Correo</label><input type="text" name="correoUser"></input>
 						</br>
 					</div>
 					<div class="pwd">
