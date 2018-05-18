@@ -130,6 +130,8 @@
 					<input type="hidden" name="indicador" value="login">
 
 					<button type="submit">Ingresa</button>
+					<br><br>
+					<p>{{error_msg}}</p>
 					<a href="#" class="close-x">X</a>
 				</form>
 			</div>
@@ -160,7 +162,16 @@
 		</div>
 	</body>
 
-
+	<script>
+		function haz_clic(){
+			$('.okati').click();
+		}
+	</script>
+	<script>
+	{% if error %}
+		window.onload = haz_clic;
+	{% endif %}
+	</script>
 	<style type="text/css">
 		.site-link{
       		padding: 5px 15px;
