@@ -120,15 +120,16 @@
 					{% csrf_token %}
 					<p class="head">Login</p>
 					<div class="uid">
-						<label>Correo</label><input type="text" name="correoUser"></input>
+						<label>Correo</label><input type="text" name="loginUser"></input>
 						</br>
 					</div>
 					<div class="pwd">
-						<label>Contraseña</label><input type="password"></input>
+						<label>Contraseña</label><input name="loginPwd"></input>
 						<span class="show-pass"></span>
 					</div>
+					<input type="hidden" name="indicador" value="login">
 
-					<a href="#" class="log">Ingresa</a>
+					<button type="submit">Ingresa</button>
 					<a href="#" class="close-x">X</a>
 				</form>
 			</div>
@@ -136,21 +137,23 @@
 		<div class="veen-2">
 			<div class="check"><span class="p1"></span> <span class="p2"></span> <span class="p3"></span> <span class="p4"></span> <span class="p5"></span></div>
 			<div class="tada">
-				<form action="">
+				<form action="" method="POST">
+					{% csrf_token %}
 					<p class="head">Registro</p>
 					<div class="name">
-						<label>Usuario</label><input type="text" name="name"></input>
+						<label>Usuario</label><input type="text" name="registroUser"></input>
 					</div>
 
 					<div class="uid">
-						<label>Contraseña</label><input type="text" name="uid"></input>
+						<label>Contraseña</label><input type="text" name="registroPwd1"></input>
 						</br>
 					</div>
 					<div class="pwd">
-						<label>Repite contraseña</label><input type="text" name="pwd"></input>
+						<label>Repite contraseña</label><input type="text" name="registroPwd2"></input>
 					</div>
+					<input type="hidden" name="indicador" value="registro">
 
-					<a href="#" class="log" type="submit">Registrate</a>
+					<button type="submit">Registrate</button>
 					<a href="#" class="close-x-2">X</a>
 				</form>
 			</div>
