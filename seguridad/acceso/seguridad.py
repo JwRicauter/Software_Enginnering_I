@@ -55,7 +55,10 @@ class Seguridad:
 		# Verificamos si el email cumple el formato RFC 822.
 		if (re.match(r"[^@]+@[^@]+\.[^@]+", eMail) == None):
 			return "Correo electronico invalido, no cumple con el formato RFC 822"		
-		
+
+		if eMail in self.usuariosRegistrados:
+			return "Usuario ya existe"
+
 		# Verificamos si las claves coinciden.
 		if(claveUno != claveDos):
 			return "Clave invalida, las claves deben coincidir"
