@@ -6,7 +6,7 @@ import re
 #	Tarea Numero Tres																		  #	
 #	Ingenieria del Software I 																  #	
 # 	Integrantes: 																			  #
-# 		David Cabeza, 13 																	  #
+# 		David Cabeza, 13-10191 																	  #
 #		Jawil Ricauter, 13-11199 															  #
 #																							  #
 # 																							  #
