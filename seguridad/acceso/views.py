@@ -23,7 +23,7 @@ def sesion(request):
 				context['success'] = "Conectado"
 				return render(request, 'acceso/ok.html', context)
 			else:
-				context['error'] = True
+				context['error_login'] = True
 				context['error_msg'] = info
 				return render(request, 'acceso/sesion.html', context)
 		
@@ -38,7 +38,7 @@ def sesion(request):
 				context['success'] = "Registrado"
 				return render(request, 'acceso/ok.html', context)
 			else:
-				context['error'] = True
+				context['error_registro'] = True
 				context['error_msg_registro'] = info
 				return render(request, 'acceso/sesion.html', context)
 
